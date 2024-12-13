@@ -6,3 +6,11 @@
 	width: var(--radix-select-trigger-width);
 	max-height: var(--radix-select-content-available-height);
 }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+}
