@@ -6,9 +6,9 @@ import Link from 'next/link';
 
 import { IoClose } from 'react-icons/io5';
 
-import alternativeBillImage from '@/assets/fatura-residencia-simultanea.png';
+import alternativeBill from '@/assets/fatura-consumo-simultanea.png';
 
-export const ResidenceTypeModal = () => {
+export const FindConsumeBillModal = () => {
 	return (
 		<Dialog.Portal>
 			<Dialog.Overlay className='fixed inset-0 bg-black/50' />
@@ -29,10 +29,9 @@ export const ResidenceTypeModal = () => {
 				<Dialog.Description hidden />
 
 				<p>
-					Você pode encontrar o tipo de imóvel na sua conta nas áreas circuladas
-					em vermelho. No exemplo abaixo onde o tipo de imóvel é{' '}
-					<strong>“Residencial Normal”</strong>, aparece na conta como{' '}
-					<strong>“RES-001”</strong> ou <strong>“Residencial Normal”</strong>.
+					Você pode encontrar a leitura do último mês na sua conta de água. O
+					valor está descrito como <strong>“Leitura Atual”</strong> e fica na
+					parte de cima da fatura.
 				</p>
 
 				<Link href={'/'} className='w-full hover:underline text-secondary'>
@@ -40,9 +39,9 @@ export const ResidenceTypeModal = () => {
 						<p className='font-medium'>Conta de água entrega simultânea</p>
 
 						<Image
-							src={alternativeBillImage}
-							width={320}
-							height={250}
+							src={alternativeBill}
+							width={311}
+							height={112}
 							alt=''
 							className='mt-12'
 						/>

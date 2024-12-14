@@ -60,7 +60,7 @@ export default function RootLayout({
 					<div className='w-full flex flex-col gap-6 order-1 sm:order-3 sm:items-end'>
 						<p>
 							<span className='font-bold sm:max-xl:hidden'>
-								Econtrou algum erro?
+								Encontrou algum erro?
 							</span>{' '}
 							Entre em contato
 						</p>

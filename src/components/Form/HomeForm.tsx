@@ -2,7 +2,8 @@
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import * as Select from '@radix-ui/react-select';
 import * as Dialog from '@radix-ui/react-dialog';
-import { ResidenceTypeModal } from '../ResidenceTypeModal';
+import { FindResidenceTypeModal } from '../Modal/FindResidenceTypeModal';
+import { ConsumeModal } from '../Modal/ConsumeModal';
 
 export const HomeForm = () => {
 	return (
@@ -10,15 +11,21 @@ export const HomeForm = () => {
 			{/* Consumption */}
 
 			<div className='flex flex-col gap-2'>
-				<p>
-					Volume de água consumido em m³.
-					<span className='text-secondary'> Saiba como encontrar.</span>
-				</p>
+				<Dialog.Root>
+					<p>
+						Volume de água consumido em m³.
+						<Dialog.Trigger className='text-secondary hover:underline cursor-pointer'>
+							<span> Saiba como encontrar.</span>
+						</Dialog.Trigger>
+					</p>
+
+					<ConsumeModal />
+				</Dialog.Root>
 				<div className='w-full flex items-end justify-start gap-2'>
 					<input
 						type='number'
 						placeholder='Ex: 10'
-						className='w-full max-w-96 h-12 py-3 px-2 border-2 border-black rounded-md'
+						className='w-full max-w-96 h-12 py-3 px-2 border-2 border-black/70 rounded-md'
 					/>
 					<span className='hidden lg:inline-block'>m³</span>
 				</div>
@@ -29,18 +36,16 @@ export const HomeForm = () => {
 				<Dialog.Root>
 					<p>
 						Tipo de imóvel.
-						<Dialog.Trigger asChild>
-							<span className='text-secondary cursor-pointer hover:underline'>
-								Saiba onde encontrar.
-							</span>
+						<Dialog.Trigger className='text-secondary hover:underline cursor-pointer'>
+							<span>Saiba onde encontrar.</span>
 						</Dialog.Trigger>
 					</p>
-					<ResidenceTypeModal />
+					<FindResidenceTypeModal />
 				</Dialog.Root>
 
 				<Select.Root>
 					<Select.Trigger
-						className='w-full h-12 py-3 px-2 border-2 flex items-center justify-between border-black rounded-md'
+						className='w-full h-12 py-3 px-2 border-2 flex items-center justify-between border-black/70 rounded-md'
 						aria-label='Residência'
 					>
 						<Select.Value placeholder='Tipo de Imóvel' />

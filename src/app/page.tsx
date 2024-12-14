@@ -29,7 +29,7 @@ export default function Home() {
 			</div>
 
 			<p className='text-sm'>*Tarifas atualizadas em Dez/2024</p>
-			<Link href={'/'} className='text-sm font-medium text-secondary'>
+			<Link href={'/'} className='text-sm w-max font-medium text-secondary'>
 				Consultar Tabela
 			</Link>
 
