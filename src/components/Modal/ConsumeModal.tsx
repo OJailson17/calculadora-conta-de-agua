@@ -28,7 +28,7 @@ export const ConsumeModal = () => {
 
 				<p>
 					Para encontrar o seu consumo até o momento. Preencha o formulário
-					abaixo inserindo os número contidos no seu hidrômetro o o valor da
+					abaixo inserindo os número contidos no seu hidrômetro e o valor da
 					leitura do último mês.
 				</p>
 

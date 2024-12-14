@@ -1,6 +1,4 @@
-'use client';
-
-export const CalculationResult = () => {
+export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
 	return (
 		<div className='flex flex-col items-center justify-center gap-8'>
 			<p className='font-medium text-2xl'>Valor atual da conta</p>
@@ -9,7 +7,7 @@ export const CalculationResult = () => {
 				{new Intl.NumberFormat('pt-BR', {
 					style: 'currency',
 					currency: 'BRL',
-				}).format(0)}
+				}).format(totalPrice)}
 			</p>
 
 			<p className='text-sm'>

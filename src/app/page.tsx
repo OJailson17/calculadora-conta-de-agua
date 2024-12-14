@@ -1,8 +1,15 @@
 import { CalculationResult } from '@/components/CalculationResult';
 import { HomeForm } from '@/components/Form/HomeForm';
+import { calculateBillPrice } from '@/utils/calculateBillPrice';
 import Link from 'next/link';
 
 export default function Home() {
+	const { totalPrice } = calculateBillPrice({
+		consumption: 3,
+		residence: 'ResidencialNormalVeraneio',
+		sewage: false,
+	});
+
 	return (
 		<main className='w-full px-4 flex flex-col gap-7 mt-9 mb-24 sm:px-8 max-w-[1200px]'>
 			<p>
@@ -25,7 +32,7 @@ export default function Home() {
 
 			<div className='flex flex-col gap-7 items-start justify-start sm:flex-row'>
 				<HomeForm />
-				<CalculationResult />
+				<CalculationResult totalPrice={totalPrice} />
 			</div>
 
 			<p className='text-sm'>*Tarifas atualizadas em Dez/2024</p>
