@@ -1,7 +1,5 @@
 'use client';
 
-import { RiArrowDropDownLine } from 'react-icons/ri';
-// import * as Select from '@radix-ui/react-select';
 import * as Dialog from '@radix-ui/react-dialog';
 import { FindResidenceTypeModal } from '../Modal/FindResidenceTypeModal';
 import { ConsumeModal } from '../Modal/ConsumeModal';
@@ -19,8 +17,7 @@ import {
 	SelectValue,
 } from '../ui/select';
 import { calculateBillPrice } from '@/utils/calculateBillPrice';
-import { useBillContext } from '@/constext/BillContext';
-import { redirect, useRouter } from 'next/navigation';
+import { useBillContext } from '@/context/BillContext';
 
 const RESIDENCE_TYPES = [
 	'ResidencialSocial',

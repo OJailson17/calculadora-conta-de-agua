@@ -1,6 +1,6 @@
 'use client';
 
-import { useBillContext } from '@/constext/BillContext';
+import { useBillContext } from '@/context/BillContext';
 import { CalculationResult } from './CalculationResult';
 import { HomeForm } from './Form/HomeForm';
 

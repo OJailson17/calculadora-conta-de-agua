@@ -1,17 +1,8 @@
-import { CalculationResult } from '@/components/CalculationResult';
-import { HomeForm } from '@/components/Form/HomeForm';
 import { MainContent } from '@/components/MainContent';
-import { BillContextProvider } from '@/constext/BillContext';
-import { calculateBillPrice } from '@/utils/calculateBillPrice';
+import { BillContextProvider } from '@/context/BillContext';
 import Link from 'next/link';
 
 export default function Home() {
-	const { totalPrice } = calculateBillPrice({
-		consumption: 12,
-		residence: 'ResidencialNormalVeraneio',
-		sewage: false,
-	});
-
 	return (
 		<main className='w-full px-4 flex flex-col gap-7 mt-9 mb-24 sm:px-8 max-w-[1200px]'>
 			<p>

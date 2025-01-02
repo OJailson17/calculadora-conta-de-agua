@@ -1,7 +1,6 @@
 'use client';
 
 import * as Dialog from '@radix-ui/react-dialog';
-import Link from 'next/link';
 
 import { IoClose } from 'react-icons/io5';
 import { FindConsumeBillModal } from './FindConsumeBillModal';
