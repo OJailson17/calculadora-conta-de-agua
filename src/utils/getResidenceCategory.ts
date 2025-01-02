@@ -1,4 +1,4 @@
-type Residence =
+export type Residence =
 	| 'ResidencialSocial'
 	| 'ResidencialIntermediaria'
 	| 'ResidencialNormalVeraneio'

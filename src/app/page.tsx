@@ -1,11 +1,13 @@
 import { CalculationResult } from '@/components/CalculationResult';
 import { HomeForm } from '@/components/Form/HomeForm';
+import { MainContent } from '@/components/MainContent';
+import { BillContextProvider } from '@/constext/BillContext';
 import { calculateBillPrice } from '@/utils/calculateBillPrice';
 import Link from 'next/link';
 
 export default function Home() {
 	const { totalPrice } = calculateBillPrice({
-		consumption: 3,
+		consumption: 12,
 		residence: 'ResidencialNormalVeraneio',
 		sewage: false,
 	});
@@ -30,10 +32,9 @@ export default function Home() {
 
 			<p>Para calcular corretamente o valor, preencha o formulário abaixo:</p>
 
-			<div className='flex flex-col gap-7 items-start justify-start sm:flex-row'>
-				<HomeForm />
-				<CalculationResult totalPrice={totalPrice} />
-			</div>
+			<BillContextProvider>
+				<MainContent />
+			</BillContextProvider>
 
 			<p className='text-sm'>*Tarifas atualizadas em Dez/2024</p>
 			<Link href={'/'} className='text-sm w-max font-medium text-secondary'>
