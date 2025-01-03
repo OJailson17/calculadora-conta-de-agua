@@ -4,13 +4,49 @@ import * as Dialog from '@radix-ui/react-dialog';
 
 import { IoClose } from 'react-icons/io5';
 import { FindConsumeBillModal } from './FindConsumeBillModal';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useConsumeModal } from '@/context/ConsumeModalContext';
+
+const ConsumeModalSchema = z.object({
+	hydrometerValue: z.number({ message: 'Campo obrigatório' }).int().min(0),
+	lastMonthValue: z.number({ message: 'Campo obrigatório' }).int().min(0),
+});
+
+type ConsumeModalFormProps = z.infer<typeof ConsumeModalSchema>;
 
 export const ConsumeModal = () => {
+	const { onCloseModal } = useConsumeModal();
+
+	const {
+		handleSubmit,
+		register,
+		reset,
+		formState: { errors },
+	} = useForm<ConsumeModalFormProps>({
+		resolver: zodResolver(ConsumeModalSchema),
+	});
+
+	const onCalculateConsume = (data: ConsumeModalFormProps) => {
+		const { hydrometerValue, lastMonthValue } = data;
+
+		const consume = hydrometerValue - lastMonthValue;
+
+		localStorage.setItem('@cca:consume', consume.toString());
+
+		reset();
+		onCloseModal();
+	};
+
 	return (
 		<Dialog.Portal>
 			<Dialog.Overlay className='fixed inset-0 bg-black/50' />
 
-			<Dialog.Content className='rounded-md overflow-y-auto py-4 px-2 sm:px-6 bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[450px] flex flex-col items-center justify-center gap-5'>
+			<Dialog.Content
+				onOpenAutoFocus={e => e.preventDefault()}
+				className='rounded-md overflow-y-auto py-4 px-2 sm:px-6 bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[450px] flex flex-col items-center justify-center gap-5'
+			>
 				<div className='w-full relative text-center'>
 					<Dialog.Title className='font-bold text-lg'>
 						Leitura do Hidrômetro
@@ -31,17 +67,30 @@ export const ConsumeModal = () => {
 					leitura do último mês.
 				</p>
 
-				<form className='flex flex-col items-center justify-center gap-8'>
+				<form
+					onSubmit={handleSubmit(onCalculateConsume)}
+					className='flex flex-col items-center justify-center gap-8'
+				>
 					<div>
 						<p>
 							Insira o valor contido no seu hidrômetro.{' '}
 							<strong>Apenas os números pretos</strong>
 						</p>
-						<input
-							type='number'
-							placeholder='Ex: 140 ou 0140'
-							className='w-full mt-1 max-w-96 h-12 py-3 px-2 border-2 border-black/70 rounded-md'
-						/>
+						<div className='w-full'>
+							<input
+								type='number'
+								placeholder='Ex: 140 ou 0140'
+								className='w-full mt-1 h-12 py-3 px-2 border-2 border-black/70 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-none'
+								{...register('hydrometerValue', {
+									valueAsNumber: true,
+								})}
+								style={errors.hydrometerValue ? { borderColor: 'red' } : {}}
+								autoFocus={false}
+							/>
+							<span className='text-error text-sm'>
+								{errors.hydrometerValue?.message}
+							</span>
+						</div>
 					</div>
 
 					<div>
@@ -55,18 +104,30 @@ export const ConsumeModal = () => {
 
 							<FindConsumeBillModal />
 						</Dialog.Root>
-						<input
-							type='number'
-							placeholder='Ex: 135'
-							className='w-full mt-1 max-w-96 h-12 py-3 px-2 border-2 border-black/70 rounded-md'
-						/>
+						<div className='w-full'>
+							<input
+								type='number'
+								placeholder='Ex: 135'
+								className='w-full mt-1 h-12 py-3 px-2 border-2 border-black/70 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-none'
+								{...register('lastMonthValue', {
+									valueAsNumber: true,
+								})}
+								style={errors.lastMonthValue ? { borderColor: 'red' } : {}}
+							/>
+							<span className='text-error text-sm'>
+								{errors.hydrometerValue?.message}
+							</span>
+						</div>
 					</div>
 
-					<Dialog.Close asChild>
-						<button className='w-full max-w-96 mx-auto h-12 p-2 font-bold bg-secondary rounded-md text-white sm:mx-0'>
-							Salvar
-						</button>
-					</Dialog.Close>
+					{/* <Dialog.Close asChild> */}
+					<button
+						// type='submit'
+						className='w-full mx-auto h-12 p-2 font-bold bg-secondary rounded-md text-white sm:mx-0'
+					>
+						Salvar Consumo
+					</button>
+					{/* </Dialog.Close> */}
 				</form>
 			</Dialog.Content>
 		</Dialog.Portal>

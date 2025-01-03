@@ -1,5 +1,6 @@
 import { MainContent } from '@/components/MainContent';
 import { BillContextProvider } from '@/context/BillContext';
+import { ConsumeModalContextProvider } from '@/context/ConsumeModalContext';
 import Link from 'next/link';
 
 export default function Home() {
@@ -23,9 +24,11 @@ export default function Home() {
 
 			<p>Para calcular corretamente o valor, preencha o formulário abaixo:</p>
 
-			<BillContextProvider>
-				<MainContent />
-			</BillContextProvider>
+			<ConsumeModalContextProvider>
+				<BillContextProvider>
+					<MainContent />
+				</BillContextProvider>
+			</ConsumeModalContextProvider>
 
 			<p className='text-sm'>*Tarifas atualizadas em Dez/2024</p>
 			<Link href={'/'} className='text-sm w-max font-medium text-secondary'>

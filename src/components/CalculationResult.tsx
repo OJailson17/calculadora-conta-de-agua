@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
 	const [isScreenReady, setIsScreenReady] = useState(false);
+	const myRef = useRef<HTMLDivElement | null>(null);
 
 	useEffect(() => {
+		if (totalPrice > 0 && myRef.current) {
+			myRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+		}
+
 		setIsScreenReady(false);
 
 		setTimeout(() => {
@@ -16,6 +21,7 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
 	return (
 		<div
 			id='#result'
+			ref={myRef}
 			className='flex flex-col items-center justify-center gap-8'
 		>
 			<p className='font-medium text-2xl'>Valor atual da conta</p>

@@ -18,6 +18,8 @@ import {
 } from '../ui/select';
 import { calculateBillPrice } from '@/utils/calculateBillPrice';
 import { useBillContext } from '@/context/BillContext';
+import { useConsumeModal } from '@/context/ConsumeModalContext';
+import { useEffect } from 'react';
 
 const RESIDENCE_TYPES = [
 	'ResidencialSocial',
@@ -38,6 +40,7 @@ const formSchema = z.object({
 			required_error: 'Campo obrigatório',
 		})
 		.min(0, 'Valor deve ser igual ou maior que 0')
+		.int()
 		.default(0),
 	residenceType: z.enum(RESIDENCE_TYPES).default('ResidencialNormalVeraneio'),
 	sewage: z.enum(['true', 'false']).default('false'),
@@ -50,12 +53,14 @@ export const HomeForm = () => {
 		handleSubmit,
 		control,
 		register,
+		setValue,
 		formState: { errors },
 	} = useForm<ConsumptionFormProps>({
 		resolver: zodResolver(formSchema),
 	});
 
 	const { onSetBillPrice } = useBillContext();
+	const { isModalOpen, onModalState } = useConsumeModal();
 
 	const onCalculateBill = (formData: ConsumptionFormProps) => {
 		const { totalPrice } = calculateBillPrice({
@@ -67,6 +72,15 @@ export const HomeForm = () => {
 		onSetBillPrice(totalPrice);
 	};
 
+	useEffect(() => {
+		const localConsume = Number(localStorage.getItem('@cca:consume'));
+
+		if (!isModalOpen && localConsume) {
+			setValue('consumption', Number(localConsume), { shouldValidate: true });
+			localStorage.removeItem('@cca:consume');
+		}
+	}, [isModalOpen]);
+
 	return (
 		<form
 			className='flex flex-col gap-12'
@@ -75,7 +89,7 @@ export const HomeForm = () => {
 			{/* Consumption */}
 
 			<div className='flex flex-col gap-2'>
-				<Dialog.Root>
+				<Dialog.Root open={isModalOpen} onOpenChange={onModalState}>
 					<p>
 						Volume de água consumido em m³.
 						<Dialog.Trigger className='text-secondary hover:underline cursor-pointer'>
