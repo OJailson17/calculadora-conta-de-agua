@@ -23,7 +23,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
 	title: 'Calculadora de Conta de Água - Bahia',
-	description: 'Calculadora de conta de água para a Bahia',
+	description:
+		'Saiba antecipadamente o valor da sua conta de água. Use a calculadora de conta de água da Bahia.',
 	applicationName: 'Calculadora de Conta de Água - Bahia',
 	creator: 'Jailson de Oliveira',
 	referrer: 'origin-when-cross-origin',
@@ -39,7 +40,8 @@ export const metadata: Metadata = {
 		type: 'website',
 		url: 'https://calculadoracontadeagua.vercel.app',
 		title: 'Calculadora de Conta de Água - Bahia',
-		description: 'Calculadora de conta de água para a Bahia',
+		description:
+			'Saiba antecipadamente o valor da sua conta de água. Use a calculadora de conta de água da Bahia.',
 		images: [
 			{
 				url: 'https://ik.imagekit.io/jayllson/calculadora-ca_Is5bD97_Id.png',
@@ -55,12 +57,13 @@ export const metadata: Metadata = {
 		creator: '@ojailson17',
 		title: 'Calculadora de Conta de Água - Bahia',
 		images: ['https://ik.imagekit.io/jayllson/calculadora-ca_Is5bD97_Id.png'],
-		description: 'Calculadora de conta de água para a Bahia',
+		description:
+			'Saiba antecipadamente o valor da sua conta de água. Use a calculadora de conta de água da Bahia.',
 		site: 'https://calculadoracontadeagua.vercel.app',
 	},
-	// verification: {
-	// 	google: 'mNHo0kVRWw-LyGwyJpcuIaIV3iEzKPtwrLB0IqxglCA',
-	// },
+	verification: {
+		google: 'mNHo0kVRWw-LyGwyJpcuIaIV3iEzKPtwrLB0IqxglCA',
+	},
 };
 
 export default function RootLayout({
