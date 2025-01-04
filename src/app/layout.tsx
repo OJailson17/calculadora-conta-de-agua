@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import waterDrop from '@/assets/water-drop.svg';
 
@@ -74,6 +75,7 @@ export default function RootLayout({
 	return (
 		<html lang='pt-BR'>
 			<body className={`${inter.className} antialiased bg-white`}>
+				<GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
 				<header className='bg-primary w-full px-4 py-8 flex items-center justify-between sm:px-8'>
 					<Link
 						href={'/'}
