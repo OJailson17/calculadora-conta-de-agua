@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
@@ -15,9 +15,52 @@ const inter = Inter({
 	display: 'swap',
 });
 
+export const viewport: Viewport = {
+	themeColor: '#ffffff',
+	width: 'device-width',
+	initialScale: 1,
+};
+
 export const metadata: Metadata = {
 	title: 'Calculadora de Conta de Água - Bahia',
-	description: 'Calcule o valor da sua conta de água',
+	description: 'Calculadora de conta de água para a Bahia',
+	applicationName: 'Calculadora de Conta de Água - Bahia',
+	creator: 'Jailson de Oliveira',
+	referrer: 'origin-when-cross-origin',
+	authors: [
+		{
+			name: 'Jailson de Oliveira',
+			url: 'https://jailsondeoliveira.vercel.app',
+		},
+	],
+	keywords: ['Conta de água', 'Bahia', 'Embasa', 'Calculadora'],
+	openGraph: {
+		siteName: 'Calculadora de Conta de Água - Bahia',
+		type: 'website',
+		url: 'https://calculadoracontadeagua.vercel.app',
+		title: 'Calculadora de Conta de Água - Bahia',
+		description: 'Calculadora de conta de água para a Bahia',
+		images: [
+			{
+				url: 'https://ik.imagekit.io/jayllson/calculadora-ca_Is5bD97_Id.png',
+				width: 1200,
+				height: 563,
+				alt: 'Imagem do site calculadora de conta de água',
+			},
+		],
+		locale: 'pt_BR',
+	},
+	twitter: {
+		card: 'summary_large_image',
+		creator: '@ojailson17',
+		title: 'Calculadora de Conta de Água - Bahia',
+		images: ['https://ik.imagekit.io/jayllson/calculadora-ca_Is5bD97_Id.png'],
+		description: 'Calculadora de conta de água para a Bahia',
+		site: 'https://calculadoracontadeagua.vercel.app',
+	},
+	// verification: {
+	// 	google: 'mNHo0kVRWw-LyGwyJpcuIaIV3iEzKPtwrLB0IqxglCA',
+	// },
 };
 
 export default function RootLayout({
