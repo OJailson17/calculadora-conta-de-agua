@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { IoClose } from 'react-icons/io5';
 
 import alternativeBill from '@/assets/fatura-consumo-simultanea.png';
+import { LINKS } from '@/utils/constants';
 
 export const FindConsumeBillModal = () => {
 	return (
@@ -34,7 +35,12 @@ export const FindConsumeBillModal = () => {
 					parte de cima da fatura.
 				</p>
 
-				<Link href={'/'} className='w-full hover:underline text-secondary'>
+				<Link
+					href={LINKS.billImage}
+					target='_blank'
+					aria-label='Ver a imagem da fatura'
+					className='w-full hover:underline text-secondary'
+				>
 					<div className='w-full flex items-center justify-center flex-col rounded-md border-2 border-secondary'>
 						<p className='font-medium'>Conta de água entrega simultânea</p>
 
@@ -42,7 +48,7 @@ export const FindConsumeBillModal = () => {
 							src={alternativeBill}
 							width={311}
 							height={112}
-							alt=''
+							alt='Imagem de uma conta de água com a leitura atual destacada'
 							className='mt-12'
 						/>
 					</div>

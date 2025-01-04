@@ -66,7 +66,7 @@ export const ConsumeModal = () => {
 				<Dialog.Overlay className='fixed inset-0 bg-black/50' />
 
 				<Dialog.Content
-					onOpenAutoFocus={e => e.preventDefault()}
+					// onOpenAutoFocus={e => e.preventDefault()}
 					className='rounded-md overflow-y-auto py-4 px-2 sm:px-6 bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[450px] flex flex-col items-center justify-center gap-5'
 				>
 					<div className='w-full relative text-center'>
