@@ -75,7 +75,7 @@ export const HomeForm = () => {
 	useEffect(() => {
 		const localConsume = Number(localStorage.getItem('@cca:consume'));
 
-		if (!isModalOpen && localConsume) {
+		if (!isModalOpen && localConsume.toString()) {
 			setValue('consumption', Number(localConsume), { shouldValidate: true });
 			localStorage.removeItem('@cca:consume');
 		}
