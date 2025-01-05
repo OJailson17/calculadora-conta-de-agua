@@ -103,7 +103,7 @@ export default function RootLayout({
 					<Link
 						target='_blank'
 						aria-label='Ir para o Github'
-						href={LINKS.appGithub}
+						href={LINKS.personalGithub}
 						className='hidden sm:block'
 					>
 						<FaGithub size={32} fill='white' />
