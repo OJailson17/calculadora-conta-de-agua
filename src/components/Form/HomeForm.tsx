@@ -42,7 +42,10 @@ const formSchema = z.object({
 		.min(0, 'Valor deve ser igual ou maior que 0')
 		.int()
 		.default(0),
-	residenceType: z.enum(RESIDENCE_TYPES).default('ResidencialNormalVeraneio'),
+	residenceType: z.enum(RESIDENCE_TYPES, {
+		message: 'Campo obrigatório',
+		required_error: 'Campo obrigatório',
+	}),
 	sewage: z.enum(['true', 'false']).default('false'),
 });
 
@@ -134,88 +137,95 @@ export const HomeForm = () => {
 					name='residenceType'
 					control={control}
 					render={({ field }) => (
-						<Select onValueChange={field.onChange} {...field}>
-							<SelectTrigger className='w-full h-12 py-3 px-2 border-2 flex items-center justify-between border-black/70 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-none'>
-								<SelectValue placeholder={field.value || 'Tipo de Imóvel'} />
-								{/* <RiArrowDropDownLine size={24} /> */}
-							</SelectTrigger>
+						<div className='w-full max-w-96 relative'>
+							<Select onValueChange={field.onChange} {...field}>
+								<SelectTrigger
+									style={errors.residenceType ? { borderColor: 'red' } : {}}
+									className='w-full h-12 py-3 px-2 border-2 flex items-center justify-between border-black/70 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-none'
+								>
+									<SelectValue placeholder={field.value || 'Tipo de Imóvel'} />
+								</SelectTrigger>
 
-							<SelectContent
-								side='bottom'
-								position='item-aligned'
-								align='center'
-								className='py-2 px-0 rounded-md bg-zinc-100'
-							>
-								<SelectGroup>
-									<SelectLabel className='font-bold text-primary'>
-										Residência
-									</SelectLabel>
+								<SelectContent
+									side='bottom'
+									position='item-aligned'
+									align='center'
+									className='py-2 px-0 rounded-md bg-zinc-100'
+								>
+									<SelectGroup>
+										<SelectLabel className='font-bold text-primary'>
+											Residência
+										</SelectLabel>
 
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='ResidencialSocial'
-									>
-										Residencial Social
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='ResidencialIntermediaria'
-									>
-										Residencial Intermediária
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='ResidencialNormalVeraneio'
-									>
-										Residencial Normal / Veraneio
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='Filantropica'
-									>
-										Filantrópica
-									</SelectItem>
-								</SelectGroup>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='ResidencialSocial'
+										>
+											Residencial Social
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='ResidencialIntermediaria'
+										>
+											Residencial Intermediária
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='ResidencialNormalVeraneio'
+										>
+											Residencial Normal / Veraneio
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='Filantropica'
+										>
+											Filantrópica
+										</SelectItem>
+									</SelectGroup>
 
-								<SelectSeparator className='h-px my-2 bg-black' />
+									<SelectSeparator className='h-px my-2 bg-black' />
 
-								<SelectGroup>
-									<SelectLabel className='font-bold text-primary'>
-										Comércio e Indústrias
-									</SelectLabel>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='Comercial'
-									>
-										Comercial
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='ServicosComerciosOutrasAtividadesReduzidas'
-									>
-										Serviços / Comércios / Outras Atividades Reduzidas
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='DerivacoesComerciaiseAguaBruta'
-									>
-										Derivações Comerciais e Água Bruta
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='ConstrucaoIndustrial'
-									>
-										Construção Industrial
-									</SelectItem>
-									<SelectItem
-										className='focus:outline-none focus:ring-2 focus:ring-secondary'
-										value='Publica'
-									>
-										Pública
-									</SelectItem>
-								</SelectGroup>
-							</SelectContent>
-						</Select>
+									<SelectGroup>
+										<SelectLabel className='font-bold text-primary'>
+											Comércio e Indústrias
+										</SelectLabel>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='Comercial'
+										>
+											Comercial
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='ServicosComerciosOutrasAtividadesReduzidas'
+										>
+											Serviços / Comércios / Outras Atividades Reduzidas
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='DerivacoesComerciaiseAguaBruta'
+										>
+											Derivações Comerciais e Água Bruta
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='ConstrucaoIndustrial'
+										>
+											Construção Industrial
+										</SelectItem>
+										<SelectItem
+											className='focus:outline-none focus:ring-2 focus:ring-secondary'
+											value='Publica'
+										>
+											Pública
+										</SelectItem>
+									</SelectGroup>
+								</SelectContent>
+							</Select>
+							<span className='w-full text-error text-sm absolute -bottom-5 left-0'>
+								{errors.residenceType?.message}
+							</span>
+						</div>
 					)}
 				/>
 			</div>
