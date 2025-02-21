@@ -34,7 +34,7 @@ export const formSchema = z.object({
       required_error: "Campo obrigatório",
     })
     .min(0, "Valor deve ser igual ou maior que 0")
-    .int()
+    .int("Valor não pode ser decimal")
     .default(0),
   residenceType: z.enum(RESIDENCE_TYPES, {
     message: "Campo obrigatório",

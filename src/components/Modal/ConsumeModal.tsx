@@ -12,8 +12,14 @@ import { FindConsumeBillModal } from "./FindConsumeBillModal";
 import { useConsumeModal } from "@/context/ConsumeModalContext";
 
 const ConsumeModalSchema = z.object({
-  hydrometerValue: z.number({ message: "Campo obrigatório" }).int().min(0),
-  lastMonthValue: z.number({ message: "Campo obrigatório" }).int().min(0),
+  hydrometerValue: z
+    .number({ message: "Campo obrigatório" })
+    .int("Valor não pode ser decimal")
+    .min(0),
+  lastMonthValue: z
+    .number({ message: "Campo obrigatório" })
+    .int("Valor não pode ser decimal")
+    .min(0),
 });
 
 type ConsumeModalFormProps = z.infer<typeof ConsumeModalSchema>;
@@ -36,13 +42,6 @@ export const ConsumeModal = () => {
 
     // show error if last month value is greater than hydrometer value
     if (lastMonthValue > hydrometerValue) {
-      toast(
-        "Valor da leitura deve ser igual ou menor que o valor do hidrômetro",
-        {
-          type: "error",
-          position: "top-center",
-        },
-      );
       setError("lastMonthValue", {
         message:
           "Valor da leitura deve ser igual ou menor que o valor do hidrômetro",
@@ -54,6 +53,12 @@ export const ConsumeModal = () => {
     const consume = hydrometerValue - lastMonthValue;
 
     localStorage.setItem("@cca:consume", consume.toString());
+
+    toast("Valor do consumo salvo com sucesso!", {
+      type: "success",
+      position: "top-center",
+      autoClose: 1000,
+    });
 
     reset();
     onCloseModal();
@@ -137,7 +142,7 @@ export const ConsumeModal = () => {
                   style={errors.lastMonthValue ? { borderColor: "red" } : {}}
                 />
                 <span className="text-sm text-error">
-                  {errors.hydrometerValue?.message}
+                  {errors.lastMonthValue?.message}
                 </span>
               </div>
             </div>
