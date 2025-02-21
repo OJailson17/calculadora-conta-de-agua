@@ -9,7 +9,6 @@ import './globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LINKS } from '@/utils/constants';
-import { AdSense } from '@/components/AdSense';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -76,9 +75,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pt-BR'>
-			<head>
-				<AdSense pId={`${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_PID}`} />
-			</head>
+			<head></head>
 			<body className={`${inter.className} antialiased bg-white`}>
 				<GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
 				<header className='bg-primary w-full px-4 py-8 flex items-center justify-between sm:px-8'>
@@ -103,7 +100,7 @@ export default function RootLayout({
 					<Link
 						target='_blank'
 						aria-label='Ir para o Github'
-						href={LINKS.personalGithub}
+						href={LINKS.projectGithub}
 						className='hidden sm:block'
 					>
 						<FaGithub size={32} fill='white' />
