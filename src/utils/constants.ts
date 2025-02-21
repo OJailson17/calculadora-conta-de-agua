@@ -7,4 +7,5 @@ export const LINKS = {
 	personalGithub: 'https://github.com/OJailson17',
 	personalLinkedIn: 'https://www.linkedin.com/in/ojailson17',
 	personalInstagram: 'https://www.instagram.com/ojailson17',
+	projectGithub: 'https://github.com/OJailson17/calculadora-conta-de-agua',
 };
