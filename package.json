@@ -1,6 +1,7 @@
 {
-  "name": "web",
-  "version": "0.1.0",
+  "name": "calculadora-de-conta-de-agua",
+  "version": "0.2.2",
+  "author": "Jailson de Oliveira",
   "private": true,
   "scripts": {
     "dev": "next dev",
