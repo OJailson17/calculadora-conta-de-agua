@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import AdSense from "./Adsense";
+// import AdSense from "./Adsense";
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
   const [isScreenReady, setIsScreenReady] = useState(false);

@@ -76,11 +76,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549347220559150"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
       </head>
       <body className={`${inter.className} bg-white antialiased`}>
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />

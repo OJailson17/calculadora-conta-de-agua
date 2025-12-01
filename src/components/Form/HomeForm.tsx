@@ -14,7 +14,7 @@ import { calculateBillPrice } from "@/utils/calculateBillPrice";
 import { useBillContext } from "@/context/BillContext";
 import { useConsumeModal } from "@/context/ConsumeModalContext";
 import { ResidenceTypeSelect } from "./ResidenceTypeSelect";
-import AdSense from "../Adsense";
+// import AdSense from "../Adsense";
 
 const RESIDENCE_TYPES = [
   "ResidencialSocial",
