@@ -15,7 +15,7 @@ export const MainContent = () => {
 
       {/* Ad div */}
       <div className="absolute right-0 hidden h-full max-h-96 w-full max-w-64 flex-col gap-4 min-[1350px]:flex">
-        <AdSense addSlot="5679799137" className="h-full w-full bg-red-200" />
+        <AdSense addSlot="5679799137" className="h-full w-full" />
       </div>
     </div>
   );
