@@ -10,30 +10,33 @@ import { LINKS } from "@/utils/constants";
 export default function Home() {
   return (
     <>
-      <main className="mb-24 mt-9 flex w-full max-w-[1200px] flex-col gap-7 px-4 sm:px-8">
-        <p>
-          Calcule o valor atual da sua conta de água baseado no seu consumo até
-          agora. Mas lembre-se que os valores podem sofrer alterações até a data
-          da próxima leitura.
-        </p>
+      <main className="mb-24 mt-9 flex w-full flex-col gap-7 px-4 sm:px-8">
+        <section className="flex w-full max-w-[1200px] flex-col gap-7">
+          <p>
+            Calcule o valor atual da sua conta de água baseado no seu consumo
+            até agora. Mas lembre-se que os valores podem sofrer alterações até
+            a data da próxima leitura.
+          </p>
 
-        <p>
-          <span className="font-bold text-error">Atenção:</span> Os cálculos são
-          baseados nas tarifas da conta de água da{" "}
-          <Link
-            target="_blank"
-            aria-label="Site da Embasa"
-            href={LINKS.embasa}
-            className="font-bold text-secondary hover:underline"
-          >
-            Empresa Baiana de Águas e Saneamento S.A (Embasa)
-          </Link>
-          . Se seu imóvel não é na Bahia ou o saneamento básico não é realizado
-          pela Embasa, esses cálculos não funcionam pra você.
-        </p>
+          <p>
+            <span className="font-bold text-error">Atenção:</span> Os cálculos
+            são baseados nas tarifas da conta de água da{" "}
+            <Link
+              target="_blank"
+              aria-label="Site da Embasa"
+              href={LINKS.embasa}
+              className="font-bold text-secondary hover:underline"
+            >
+              Empresa Baiana de Águas e Saneamento S.A (Embasa)
+            </Link>
+            . Se seu imóvel não é na Bahia ou o saneamento básico não é
+            realizado pela Embasa, esses cálculos não funcionam pra você.
+          </p>
 
-        <p>Para calcular corretamente o valor, preencha o formulário abaixo:</p>
-
+          <p>
+            Para calcular corretamente o valor, preencha o formulário abaixo:
+          </p>
+        </section>
         <ConsumeModalContextProvider>
           <BillContextProvider>
             <MainContent />

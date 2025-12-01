@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import AdSense from "./Adsense";
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
   const [isScreenReady, setIsScreenReady] = useState(false);
@@ -22,7 +23,7 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
     <div
       id="#result"
       ref={myRef}
-      className="flex flex-col items-center justify-center gap-8"
+      className="relative flex flex-col items-center justify-center gap-8"
     >
       <p className="text-2xl font-medium">Valor atual da conta</p>
 
@@ -41,6 +42,10 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
         Valor não inclui taxas, multas ou juros adicionais que podem ser
         cobrados
       </p>
+
+      <div className="flex h-full max-h-52 w-full max-w-72 flex-col gap-4">
+        <AdSense addSlot="2911817951" className="h-full w-full bg-red-200" />
+      </div>
     </div>
   );
 };

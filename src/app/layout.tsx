@@ -75,7 +75,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <head></head>
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6549347220559150"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className={`${inter.className} bg-white antialiased`}>
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
         <header className="flex w-full items-center justify-between bg-primary px-4 py-8 sm:px-8">
