@@ -170,10 +170,10 @@ export const HomeForm = () => {
       >
         Calcular
       </button>
-
+      {/* 
       <div className="flex h-full max-h-9 w-min max-w-96 flex-col gap-4">
         <AdSense addSlot="2911817951" className="h-full w-full min-w-72" />
-      </div>
+      </div> */}
     </form>
   );
 };
