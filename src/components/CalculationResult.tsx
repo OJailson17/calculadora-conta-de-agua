@@ -43,8 +43,8 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
         cobrados
       </p>
 
-      <div className="flex h-full max-h-52 w-full max-w-72 flex-col gap-4">
-        <AdSense addSlot="2911817951" className="h-full w-full" />
+      <div className="flex max-h-52 w-full max-w-72 flex-col gap-4">
+        <AdSense addSlot="2911817951" className="max-h-52 w-full" />
       </div>
     </div>
   );
