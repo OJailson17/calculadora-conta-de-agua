@@ -118,7 +118,6 @@ export default function RootLayout({
         </header>
         {children}
         <SocialBar />
-        <AdsTerra320 />
       </body>
     </html>
   );
