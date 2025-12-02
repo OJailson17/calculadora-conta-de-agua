@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import AdSense from "./Adsense";
 import { AdsTerra300 } from "./AdsTerra/banner-300";
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {

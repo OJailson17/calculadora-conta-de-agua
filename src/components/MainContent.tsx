@@ -14,7 +14,7 @@ export const MainContent = () => {
       <CalculationResult totalPrice={billPrice} />
 
       {/* Ad div */}
-      <div className="flex h-full max-h-96 w-full max-w-64 flex-col gap-4 max-[1350px]:hidden">
+      <div className="hidden h-full max-h-96 w-full max-w-64 flex-col gap-4 min-[1350px]:flex">
         <AdsTerra300 />
       </div>
     </div>

@@ -14,7 +14,6 @@ import { calculateBillPrice } from "@/utils/calculateBillPrice";
 import { useBillContext } from "@/context/BillContext";
 import { useConsumeModal } from "@/context/ConsumeModalContext";
 import { ResidenceTypeSelect } from "./ResidenceTypeSelect";
-import AdSense from "../Adsense";
 import { AdsTerra300 } from "../AdsTerra/banner-300";
 
 const RESIDENCE_TYPES = [
@@ -172,9 +171,6 @@ export const HomeForm = () => {
         Calcular
       </button>
 
-      {/* <div className="flex h-full max-h-9 w-min max-w-96 flex-col gap-4">
-        <AdSense addSlot="2911817951" className="h-full w-full min-w-72" />
-      </div> */}
       <AdsTerra300 />
     </form>
   );
