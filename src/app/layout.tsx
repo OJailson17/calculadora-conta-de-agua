@@ -10,7 +10,6 @@ import { LINKS } from "@/utils/constants";
 
 import waterDrop from "@/assets/water-drop.svg";
 import { SocialBar } from "@/components/AdsTerra/social-bar";
-import { AdsTerra728 } from "@/components/AdsTerra/banner-728";
 import { AdsTerra320 } from "@/components/AdsTerra/banner-320";
 
 const inter = Inter({
@@ -89,7 +88,6 @@ export default function RootLayout({
         className={`${inter.className} overflow-x-hidden bg-white antialiased`}
       >
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-        <AdsTerra320 />
         <header className="flex w-full items-center justify-between bg-primary px-4 py-8 sm:px-8">
           <Link
             href={"/"}
@@ -119,6 +117,8 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
+        <SocialBar />
+        <AdsTerra320 />
       </body>
     </html>
   );
