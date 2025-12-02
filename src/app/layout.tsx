@@ -9,8 +9,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { LINKS } from "@/utils/constants";
 
 import waterDrop from "@/assets/water-drop.svg";
-import { SocialBar } from "@/components/AdsTerra/social-bar";
-import { AdsTerra320 } from "@/components/AdsTerra/banner-320";
+import { AdsTerraSocialBar } from "@/components/AdsTerra/social-bar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -117,7 +116,7 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
-        <SocialBar />
+        <AdsTerraSocialBar />
       </body>
     </html>
   );
