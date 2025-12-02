@@ -89,6 +89,7 @@ export default function RootLayout({
         className={`${inter.className} overflow-x-hidden bg-white antialiased`}
       >
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+        <AdsTerra320 />
         <header className="flex w-full items-center justify-between bg-primary px-4 py-8 sm:px-8">
           <Link
             href={"/"}
@@ -118,7 +119,6 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
-        <AdsTerra320 />
       </body>
     </html>
   );
