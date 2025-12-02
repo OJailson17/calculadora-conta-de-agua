@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AdSense from "./Adsense";
+import { AdsTerra300 } from "./AdsTerra/banner-300";
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
   const [isScreenReady, setIsScreenReady] = useState(false);
@@ -23,7 +24,7 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
     <div
       id="#result"
       ref={myRef}
-      className="relative flex flex-col items-center justify-center gap-8"
+      className="flex flex-col items-center justify-center gap-8"
     >
       <p className="text-2xl font-medium">Valor atual da conta</p>
 
@@ -43,9 +44,7 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
         cobrados
       </p>
 
-      <div className="flex h-full max-h-52 w-full max-w-72 flex-col gap-4">
-        <AdSense addSlot="2911817951" className="h-full w-full" />
-      </div>
+      <AdsTerra300 />
     </div>
   );
 };
