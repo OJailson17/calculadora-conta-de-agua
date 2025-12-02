@@ -6,11 +6,13 @@ import { Footer } from "@/components/Footer";
 import { MainContent } from "@/components/MainContent";
 
 import { LINKS } from "@/utils/constants";
+// import { AdsTerra728 } from "@/components/AdsTerra/banner-728";
 
 export default function Home() {
   return (
     <>
       <main className="mb-24 mt-9 flex w-full flex-col gap-7 px-4 sm:px-8">
+        {/* <AdsTerra728 /> */}
         <section className="flex w-full max-w-[1200px] flex-col gap-7">
           <p>
             Calcule o valor atual da sua conta de água baseado no seu consumo

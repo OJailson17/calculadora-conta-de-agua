@@ -82,7 +82,9 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script> */}
       </head>
-      <body className={`${inter.className} bg-white antialiased`}>
+      <body
+        className={`${inter.className} overflow-x-hidden bg-white antialiased`}
+      >
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
         <header className="flex w-full items-center justify-between bg-primary px-4 py-8 sm:px-8">
           <Link
