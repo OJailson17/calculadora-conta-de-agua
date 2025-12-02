@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AdsTerraNativeBanner1 } from "./AdsTerra/native-banner-1";
+import { AdsTerra300 } from "./AdsTerra/banner-300";
 
 export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
   const [isScreenReady, setIsScreenReady] = useState(false);
@@ -43,7 +43,7 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
         cobrados
       </p>
 
-      <AdsTerraNativeBanner1 />
+      <AdsTerra300 />
     </div>
   );
 };

@@ -14,7 +14,7 @@ import { calculateBillPrice } from "@/utils/calculateBillPrice";
 import { useBillContext } from "@/context/BillContext";
 import { useConsumeModal } from "@/context/ConsumeModalContext";
 import { ResidenceTypeSelect } from "./ResidenceTypeSelect";
-import { AdsTerra300 } from "../AdsTerra/banner-300";
+import { AdsTerraNativeBanner1 } from "../AdsTerra/native-banner-1";
 
 const RESIDENCE_TYPES = [
   "ResidencialSocial",
@@ -171,7 +171,7 @@ export const HomeForm = () => {
         Calcular
       </button>
 
-      <AdsTerra300 />
+      <AdsTerraNativeBanner1 />
     </form>
   );
 };
