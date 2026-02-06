@@ -11,6 +11,8 @@ import { LINKS } from "@/utils/constants";
 import waterDrop from "@/assets/water-drop.svg";
 import { AdsTerraSocialBar } from "@/components/AdsTerra/social-bar";
 
+import { PrivacyConsent } from "@/components/PrivacyConsent";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--inter",
@@ -117,6 +119,7 @@ export default function RootLayout({
         </header>
         {children}
         <AdsTerraSocialBar />
+        <PrivacyConsent />
       </body>
     </html>
   );
