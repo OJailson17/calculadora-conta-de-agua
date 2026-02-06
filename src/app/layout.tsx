@@ -12,6 +12,7 @@ import waterDrop from "@/assets/water-drop.svg";
 import { SocialBar } from "@/components/AdsTerra/social-bar";
 import { AdsTerra728 } from "@/components/AdsTerra/banner-728";
 import { AdsTerra320 } from "@/components/AdsTerra/banner-320";
+import { PrivacyConsent } from "@/components/PrivacyConsent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -119,6 +120,7 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
+        <PrivacyConsent />
       </body>
     </html>
   );
