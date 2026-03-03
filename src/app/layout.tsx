@@ -9,7 +9,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { LINKS } from "@/utils/constants";
 
 import waterDrop from "@/assets/water-drop.svg";
-import { AdsTerraSocialBar } from "@/components/AdsTerra/social-bar";
+// import { AdsTerraSocialBar } from "@/components/AdsTerra/social-bar";
 
 import { PrivacyConsent } from "@/components/PrivacyConsent";
 
@@ -118,7 +118,6 @@ export default function RootLayout({
           </Link>
         </header>
         {children}
-        <AdsTerraSocialBar />
         <PrivacyConsent />
       </body>
     </html>
