@@ -1,4 +1,4 @@
-const CACHE_NAME = "calculadora-agua-v2";
+const CACHE_NAME = "calculadora-agua-v4";
 
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
@@ -11,7 +11,6 @@ const PRECACHE_ASSETS = [
   "/",
   "/site.webmanifest",
   "/favicon.svg",
-  "/favicon.ico",
   "/favicon-16x16.png",
   "/favicon-32x32.png",
   "/android-chrome-192x192.png",
@@ -48,14 +47,16 @@ self.addEventListener("install", (event) => {
           if (assetUrls.length > 0) {
             // Deduplicate to avoid fetching the same resource twice
             const uniqueUrls = [...new Set(assetUrls)].filter(
-              (url) => !url.includes("google-analytics")
+              (url) => !url.includes("google-analytics"),
             );
 
             // Cache them without failing the whole install if one fails
             await Promise.allSettled(
-              uniqueUrls.map((url) => fetch(url).then((res) => {
-                 if(res.ok) cache.put(url, res);
-              }))
+              uniqueUrls.map((url) =>
+                fetch(url).then((res) => {
+                  if (res.ok) cache.put(url, res);
+                }),
+              ),
             );
           }
         }
@@ -64,7 +65,7 @@ self.addEventListener("install", (event) => {
       }
 
       self.skipWaiting();
-    })()
+    })(),
   );
 });
 
@@ -77,10 +78,10 @@ self.addEventListener("activate", (event) => {
         Promise.all(
           keys
             .filter((key) => key !== CACHE_NAME)
-            .map((key) => caches.delete(key))
-        )
+            .map((key) => caches.delete(key)),
+        ),
       )
-      .then(() => self.clients.claim())
+      .then(() => self.clients.claim()),
   );
 });
 
@@ -101,27 +102,32 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.open(CACHE_NAME).then((cache) =>
-      cache.match(request, { ignoreSearch: request.mode === "navigate", ignoreVary: true }).then((cached) => {
-        const networkFetch = fetch(request)
-          .then((response) => {
-            // Cache successful same-origin responses
-            if (response.ok) {
-              cache.put(request, response.clone());
-            }
-            return response;
-          })
-          .catch(() => {
-            // Return cached version if network fails
-            if (cached) return cached;
-            // Fallback to the root page for navigation requests
-            if (request.mode === "navigate") {
-              return cache.match("/", { ignoreVary: true });
-            }
-          });
+      cache
+        .match(request, {
+          ignoreSearch: request.mode === "navigate",
+          ignoreVary: true,
+        })
+        .then((cached) => {
+          const networkFetch = fetch(request)
+            .then((response) => {
+              // Cache successful same-origin responses
+              if (response.ok) {
+                cache.put(request, response.clone());
+              }
+              return response;
+            })
+            .catch(() => {
+              // Return cached version if network fails
+              if (cached) return cached;
+              // Fallback to the root page for navigation requests
+              if (request.mode === "navigate") {
+                return cache.match("/", { ignoreVary: true });
+              }
+            });
 
-        // Return cached immediately if available, fetch in background (stale-while-revalidate)
-        return cached || networkFetch;
-      })
-    )
+          // Return cached immediately if available, fetch in background (stale-while-revalidate)
+          return cached || networkFetch;
+        }),
+    ),
   );
 });
