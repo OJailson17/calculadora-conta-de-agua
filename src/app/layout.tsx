@@ -12,6 +12,7 @@ import waterDrop from "@/assets/water-drop.svg";
 // import { AdsTerraSocialBar } from "@/components/AdsTerra/social-bar";
 
 import { PrivacyConsent } from "@/components/PrivacyConsent";
+import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,15 +21,20 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#1a6faf",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
+  manifest: "/site.webmanifest",
   title: "Calculadora de Conta de Água - Bahia",
   description:
     "Saiba antecipadamente o valor da sua conta de água. Use a calculadora de conta de água da Bahia.",
+  icons: [
+    { url: "/favicon.svg", type: "image/svg+xml" },
+    { url: "/favicon.ico" }
+  ],
   applicationName: "Calculadora de Conta de Água - Bahia",
   creator: "Jailson de Oliveira",
   referrer: "origin-when-cross-origin",
@@ -119,6 +125,7 @@ export default function RootLayout({
         </header>
         {children}
         <PrivacyConsent />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
