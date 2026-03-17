@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1a6faf",
+  themeColor: "#05266C",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Saiba antecipadamente o valor da sua conta de água. Use a calculadora de conta de água da Bahia.",
   icons: [
     { url: "/favicon.svg", type: "image/svg+xml" },
-    { url: "/favicon.ico" }
+    { url: "/favicon.ico" },
   ],
   applicationName: "Calculadora de Conta de Água - Bahia",
   creator: "Jailson de Oliveira",

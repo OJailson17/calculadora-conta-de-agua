@@ -14,5 +14,7 @@ Esta é uma calculadora de contas de água da Embasa (Empresa Baiana de Águas e
 - Cálculo automático do consumo baseado nos valores do hidrômetro
 - Seleção do tipo de imóvel
 - Cálculo automático do valor da conta
+- Modo offline
+- Instalar como Aplicativo
 
 💡 Útil para estimar gastos e planejar o consumo de água de forma eficiente.
