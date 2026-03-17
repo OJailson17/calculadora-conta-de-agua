@@ -43,7 +43,7 @@ export default function Home() {
           </BillContextProvider>
         </ConsumeModalContextProvider>
 
-        <p className="text-sm">*Tarifas atualizadas em Ago/2025</p>
+        <p className="text-sm">*Tarifas atualizadas em Mar/2026</p>
         <Link
           href={LINKS.taxes}
           target="_blank"

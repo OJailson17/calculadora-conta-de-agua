@@ -1,4 +1,4 @@
-const CACHE_NAME = "calculadora-agua-v4";
+const CACHE_NAME = "calculadora-agua-v0.2.4";
 
 self.addEventListener("message", (event) => {
   if (event.data && event.data.type === "SKIP_WAITING") {
