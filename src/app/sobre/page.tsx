@@ -7,7 +7,7 @@ export default function Sobre() {
   return (
     <>
       <main className="mx-auto mb-24 mt-12 flex w-full max-w-[1200px] flex-col gap-10 px-4 sm:px-8">
-        <section className="flex w-full flex-col gap-6 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-10">
+        <section className="flex w-full flex-col gap-6 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-10">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h2 className="text-3xl font-bold tracking-tight text-primary">
               Sobre os Cálculos
@@ -33,14 +33,14 @@ export default function Sobre() {
               <strong>faixas de consumo</strong>:
             </p>
 
-            <ul className="ml-4 flex list-disc flex-col gap-5 pl-4 marker:text-primary">
+            <ul className="ml-2 flex list-disc flex-col gap-5 pl-4 marker:text-primary sm:ml-4">
               <li className="pl-1">
                 <strong>A primeira faixa de consumo (até 6m³):</strong> Possui
                 um valor mínimo fixo. Mesmo que você consuma menos que isso,
                 esse é o valor básico cobrado para manter o serviço e a
                 infraestrutura funcionando.
               </li>
-              <li className="pl-1">
+              <div className="pl-1">
                 <strong>
                   As próximas faixas de consumo (7 a 10m³, 11 a 15m³, 16 a 20m³,
                   etc.):
@@ -48,9 +48,9 @@ export default function Sobre() {
                 A água que ultrapassa o limite da faixa anterior é cobrada em
                 novas faixas. A cada nova faixa atingida, o custo da água fica
                 um pouco mais alto:
-              </li>
+              </div>
 
-              <li>
+              <li className="pl-1">
                 <strong className="text-slate-900">Exemplo:</strong> Se você
                 possui uma{" "}
                 <strong className="text-slate-900">Residência Normal</strong> e
@@ -82,8 +82,8 @@ export default function Sobre() {
             </ul>
 
             <p>
-              Ao final, o sistema soma o valor calculado em cada uma dessas
-              faixas para chegar ao valor total do consumo de água.
+              Como no exemplo acima, o sistema soma o valor calculado em cada
+              uma dessas faixas para chegar ao valor total do consumo de água.
             </p>
 
             <p>
@@ -102,7 +102,7 @@ export default function Sobre() {
                 target="_blank"
                 className="font-medium text-secondary transition-colors hover:underline"
               >
-                tabela de tarifas oficial
+                tabela de tarifas oficial da Embasa
               </Link>
               . A aplicação apenas automatiza essa divisão por faixas para
               facilitar a sua vida!

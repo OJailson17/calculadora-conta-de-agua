@@ -42,7 +42,7 @@ export const Footer = () => {
             href="/sobre"
             className="transition-colors hover:text-white hover:underline"
           >
-            Sobre os cálculos
+            Sobre os Cálculos
           </Link>
         </div>
 

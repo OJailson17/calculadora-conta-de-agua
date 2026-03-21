@@ -172,7 +172,7 @@ export const HomeForm = () => {
         type="submit"
         className="mx-auto mt-4 h-14 w-full max-w-96 rounded-lg bg-secondary text-lg font-bold text-white transition-all hover:bg-primary hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-secondary/30 active:scale-[0.98] sm:mx-0"
       >
-        Realizar Cálculo
+        Calcular
       </button>
 
       {/* <AdsTerra300 /> */}

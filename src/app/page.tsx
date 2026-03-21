@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <main className="mx-auto mb-24 mt-12 flex w-full max-w-[1200px] flex-col gap-10 px-4 sm:px-8">
-        <section className="flex w-full flex-col gap-5 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
+        <section className="flex w-full flex-col gap-5 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-8">
           <p className="text-lg text-slate-700">
             Calcule o valor atual da sua conta de água baseado no seu consumo
             até agora. Mas lembre-se que os valores podem sofrer alterações até
@@ -30,7 +30,8 @@ export default function Home() {
               Empresa Baiana de Águas e Saneamento S.A (Embasa)
             </Link>
             . Se seu imóvel não é na Bahia ou o saneamento básico não é
-            realizado pela Embasa, esses cálculos não funcionam pra você.
+            realizado pela Embasa, esses cálculos não são válidos para o seu
+            imóvel.
           </p>
 
           <p className="mt-2 text-lg font-medium text-slate-800">
@@ -43,7 +44,7 @@ export default function Home() {
           </BillContextProvider>
         </ConsumeModalContextProvider>
 
-        <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
+        <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-8">
           <p className="text-sm font-medium text-slate-500">
             *Tarifas atualizadas em Mar/2026
           </p>

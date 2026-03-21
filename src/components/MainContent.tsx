@@ -10,11 +10,11 @@ export const MainContent = () => {
 
   return (
     <div className="grid w-full grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
-      <div className="flex w-full flex-col lg:col-span-7 rounded-2xl bg-white p-6 sm:p-8 shadow-sm border border-slate-100">
+      <div className="flex w-full flex-col rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-8 lg:col-span-7">
         <HomeForm />
       </div>
-      
-      <div className="sticky top-8 flex w-full flex-col lg:col-span-5 rounded-2xl bg-gradient-to-br from-primary to-blue-900 p-8 shadow-lg text-white">
+
+      <div className="sticky top-8 flex w-full flex-col rounded-2xl bg-gradient-to-br from-primary to-blue-900 p-8 text-white shadow-lg lg:col-span-5">
         <CalculationResult totalPrice={billPrice} />
       </div>
 
