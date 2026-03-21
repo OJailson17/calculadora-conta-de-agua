@@ -36,6 +36,13 @@ export const Footer = () => {
         >
           Tabela de Tarifas
         </Link>
+        <Link
+          aria-label="Página Sobre"
+          href="/sobre"
+          className="hover:underline"
+        >
+          Sobre
+        </Link>
       </div>
 
       {/* Contact */}

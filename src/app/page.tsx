@@ -53,7 +53,7 @@ export default function Home() {
           Consultar Tabela
         </Link>
 
-        <p>
+        <p className="w-full max-w-[720px]">
           Essa aplicação não possui nenhum vínculo com a Embasa. Apenas utiliza
           os dados contidos no{" "}
           <Link
@@ -64,7 +64,13 @@ export default function Home() {
           >
             site da empresa
           </Link>{" "}
-          para realizar os cálculos.
+          para realizar os cálculos.{" "}
+          <Link
+            href={LINKS.about}
+            className="w-max text-sm font-medium text-secondary hover:underline"
+          >
+            Saiba mais sobre os cálculos
+          </Link>
         </p>
       </main>
 

@@ -100,6 +100,16 @@ self.addEventListener("fetch", (event) => {
   // Cross-origin requests (e.g. Google Fonts, Analytics): network-only
   if (url.origin !== self.location.origin) return;
 
+  // Ignore development, HMR and Next.js internal API requests
+  if (
+    url.pathname.startsWith("/_next/webpack-hmr") ||
+    url.pathname.includes("hot-update.") ||
+    url.pathname.includes("__nextjs_original-stack-frame") ||
+    url.searchParams.has("_rsc")
+  ) {
+    return;
+  }
+
   event.respondWith(
     caches.open(CACHE_NAME).then((cache) =>
       cache

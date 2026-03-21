@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const DEV_SW = true;
+const DEV_SW = false;
 
 export function ServiceWorkerRegister() {
   useEffect(() => {
@@ -13,7 +13,14 @@ export function ServiceWorkerRegister() {
       location.hostname === "127.0.0.1" ||
       location.hostname === "[::1]";
 
-    if (isLocal && !DEV_SW) return;
+    if (isLocal && !DEV_SW) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister();
+        }
+      });
+      return;
+    }
 
     navigator.serviceWorker
       .register("/sw.js", { scope: "/" })
