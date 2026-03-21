@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +11,8 @@ import { LINKS } from "@/utils/constants";
 import alternativeBill from "@/assets/fatura-consumo-simultanea.png";
 
 export const FindConsumeBillModal = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <Dialog.Portal>
       <Dialog.Overlay className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-all" />
@@ -45,13 +48,24 @@ export const FindConsumeBillModal = () => {
               Conta de água entrega simultânea
             </p>
 
-            <Image
-              src={alternativeBill}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              alt="Imagem de uma conta de água com a leitura atual destacada"
-              className="mt-4"
-              style={{ width: "100%", height: "auto" }}
-            />
+            <div className="relative mt-4 min-h-[200px] w-full">
+              {isLoading && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
+                  <div className="h-full w-full animate-pulse bg-slate-200" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="h-10 w-10 animate-spin rounded-full border-4 border-slate-300 border-t-secondary" />
+                  </div>
+                </div>
+              )}
+              <Image
+                src={alternativeBill}
+                onLoad={() => setIsLoading(false)}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                alt="Imagem de uma conta de água com a leitura atual destacada"
+                style={{ width: "100%", height: "auto" }}
+                className={`transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+              />
+            </div>
           </div>
         </Link>
       </Dialog.Content>
