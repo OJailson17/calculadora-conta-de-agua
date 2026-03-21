@@ -92,36 +92,38 @@ export default function RootLayout({
         ></script> */}
       </head>
       <body
-        className={`${inter.className} overflow-x-hidden bg-white antialiased`}
+        className={`${inter.className} overflow-x-hidden bg-slate-50 antialiased text-slate-900`}
       >
         <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
-        <header className="flex w-full items-center justify-between bg-primary px-4 py-8 sm:px-8">
-          <Link
-            href={"/"}
-            aria-label="Ir para a página inicial"
-            className="flex w-full items-center justify-center gap-3 focus:border-none sm:w-max"
-          >
-            <Image
-              alt="Ícone de uma gota de água"
-              src={waterDrop}
-              width={48}
-              height={48}
-              className="hidden sm:block"
-            />
-            <h1 className="text-center text-2xl font-bold text-white">
-              Calculadora de Conta de Água{" "}
-              <span className="hidden sm:inline-block">-</span> Bahia
-            </h1>
-          </Link>
+        <header className="w-full bg-primary shadow-md">
+          <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-4 py-6 sm:px-8">
+            <Link
+              href={"/"}
+              aria-label="Ir para a página inicial"
+              className="flex w-full items-center justify-center gap-4 focus:border-none sm:w-max transition-opacity hover:opacity-90"
+            >
+              <Image
+                alt="Ícone de uma gota de água"
+                src={waterDrop}
+                width={44}
+                height={44}
+                className="hidden drop-shadow-md sm:block bg-blue-600/20 p-2 rounded-full"
+              />
+              <h1 className="text-center text-xl font-bold tracking-tight text-white sm:text-2xl drop-shadow-sm">
+                Calculadora de Conta de Água{" "}
+                <span className="hidden opacity-80 sm:inline-block">-</span> Bahia
+              </h1>
+            </Link>
 
-          <Link
-            target="_blank"
-            aria-label="Ir para o Github"
-            href={LINKS.projectGithub}
-            className="hidden sm:block"
-          >
-            <FaGithub size={32} fill="white" />
-          </Link>
+            <Link
+              target="_blank"
+              aria-label="Ir para o Github"
+              href={LINKS.projectGithub}
+              className="hidden text-white/80 transition-colors hover:text-white sm:block"
+            >
+              <FaGithub size={30} />
+            </Link>
+          </div>
         </header>
         {children}
         <PrivacyConsent />

@@ -35,16 +35,16 @@ export const ResidenceTypeSelect = ({
           <Select onValueChange={field.onChange} {...field}>
             <SelectTrigger
               style={errors.residenceType ? { borderColor: "red" } : {}}
-              className="flex h-12 w-full items-center justify-between rounded-md border-2 border-black/70 px-2 py-3 focus:border-none focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="flex h-14 w-full items-center justify-between rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-base transition-colors focus:border-secondary focus:bg-white focus:outline-none focus:ring-4 focus:ring-secondary/20"
             >
-              <SelectValue placeholder={field.value || "Tipo de Imóvel"} />
+              <SelectValue placeholder={field.value || "Selecione o tipo de imóvel"} />
             </SelectTrigger>
 
             <SelectContent
               side="bottom"
               position="item-aligned"
               align="center"
-              className="rounded-md bg-zinc-100 px-0 py-2"
+              className="rounded-xl border border-slate-200 bg-white px-1 py-2 shadow-lg"
             >
               <SelectGroup>
                 <SelectLabel className="font-bold text-primary">
@@ -54,7 +54,7 @@ export const ResidenceTypeSelect = ({
                 {residenceCategories.residencial.map((category) => (
                   <SelectItem
                     key={category.value}
-                    className="focus:outline-none focus:ring-2 focus:ring-secondary"
+                    className="cursor-pointer rounded-md py-2 px-3 text-slate-700 focus:bg-slate-100 focus:text-slate-900 focus:outline-none"
                     value={category.value}
                   >
                     {category.label}
@@ -62,7 +62,7 @@ export const ResidenceTypeSelect = ({
                 ))}
               </SelectGroup>
 
-              <SelectSeparator className="my-2 h-px bg-black" />
+              <SelectSeparator className="my-2 h-px bg-slate-200" />
 
               <SelectGroup>
                 <SelectLabel className="font-bold text-primary">
@@ -72,7 +72,7 @@ export const ResidenceTypeSelect = ({
                 {residenceCategories.comercial.map((category) => (
                   <SelectItem
                     key={category.value}
-                    className="focus:outline-none focus:ring-2 focus:ring-secondary"
+                    className="cursor-pointer rounded-md py-2 px-3 text-slate-700 focus:bg-slate-100 focus:text-slate-900 focus:outline-none"
                     value={category.value}
                   >
                     {category.label}
@@ -81,7 +81,7 @@ export const ResidenceTypeSelect = ({
               </SelectGroup>
             </SelectContent>
           </Select>
-          <span className="absolute -bottom-5 left-0 w-full text-sm text-error">
+          <span className="absolute -bottom-6 left-0 w-full text-sm font-medium text-error">
             {errors.residenceType?.message}
           </span>
         </div>

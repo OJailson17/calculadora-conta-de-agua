@@ -84,91 +84,95 @@ export const HomeForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-12"
+      className="flex flex-col gap-10"
       onSubmit={handleSubmit(onCalculateBill)}
     >
       {/* Consumption */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         <Dialog.Root open={isModalOpen} onOpenChange={onModalState}>
-          <p>
-            Volume de água consumido em m³.
-            <Dialog.Trigger className="cursor-pointer text-secondary hover:underline">
-              <span> Saiba como encontrar.</span>
+          <p className="font-medium text-slate-800">
+            Volume de água consumido (em m³)
+            <Dialog.Trigger className="ml-2 cursor-pointer font-normal text-secondary hover:underline">
+              <span>Saiba como encontrar.</span>
             </Dialog.Trigger>
           </p>
 
           <ConsumeModal />
         </Dialog.Root>
-        <div className="flex w-full items-end justify-start gap-2">
+        <div className="mt-1 flex w-full items-center justify-start gap-3">
           <div className="relative w-full max-w-96">
             <input
               type="number"
               placeholder="Ex: 10"
-              className="h-12 w-full rounded-md border-2 border-black/70 px-2 py-3 focus:border-none focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="h-14 w-full rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-lg transition-colors focus:border-secondary focus:bg-white focus:outline-none focus:ring-4 focus:ring-secondary/20"
               {...register("consumption", {
                 valueAsNumber: true,
               })}
               style={errors.consumption ? { borderColor: "red" } : {}}
             />
-            <span className="absolute -bottom-5 left-0 w-full text-sm text-error">
+            <span className="absolute -bottom-6 left-0 w-full text-sm font-medium text-error">
               {errors.consumption?.message}
             </span>
           </div>
-          <span className="hidden lg:inline-block">m³</span>
+          <span className="hidden font-medium text-slate-500 lg:inline-block">
+            m³
+          </span>
         </div>
       </div>
 
       {/* Residence type */}
-      <div className="flex max-w-96 flex-col gap-2">
+      <div className="flex max-w-96 flex-col gap-1">
         <Dialog.Root>
-          <p>
-            Tipo de imóvel.
-            <Dialog.Trigger className="cursor-pointer text-secondary hover:underline">
+          <p className="font-medium text-slate-800">
+            Tipo de imóvel
+            <Dialog.Trigger className="ml-2 cursor-pointer font-normal text-secondary hover:underline">
               <span>Saiba onde encontrar.</span>
             </Dialog.Trigger>
           </p>
           <FindResidenceTypeModal />
         </Dialog.Root>
 
-        <ResidenceTypeSelect control={control} errors={errors} />
+        <div className="mt-1">
+          <ResidenceTypeSelect control={control} errors={errors} />
+        </div>
       </div>
 
       {/* sewage */}
-      <div className="flex w-full max-w-96 flex-col gap-7">
-        <p>
-          Seu imóvel está ligada ao serviço de esgotamento sanitário da Embasa?
+      <div className="flex w-full max-w-[420px] flex-col gap-4">
+        <p className="font-medium leading-snug text-slate-800">
+          Seu imóvel está ligado ao serviço de esgotamento sanitário da Embasa?
         </p>
 
-        <div className="flex items-center justify-start gap-7">
-          <div>
+        <div className="flex items-center justify-start gap-8">
+          <label className="group flex cursor-pointer items-center gap-2">
             <input
               type="radio"
               id="yes"
-              className="mr-1 focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="h-5 w-5 cursor-pointer accent-secondary focus:ring-2 focus:ring-secondary/50 group-hover:accent-primary"
               value="true"
               {...register("sewage")}
             />
-            <label htmlFor="yes">Sim</label>
-          </div>
-          <div>
+            <span className="font-medium text-slate-700">Sim</span>
+          </label>
+          <label className="group flex cursor-pointer items-center gap-2">
             <input
               type="radio"
               id="no"
               value="false"
               {...register("sewage")}
-              className="mr-1 focus:outline-none focus:ring-2 focus:ring-secondary"
+              className="h-5 w-5 cursor-pointer accent-secondary focus:ring-2 focus:ring-secondary/50 group-hover:accent-primary"
               defaultChecked
             />
-            <label htmlFor="no">Não</label>
-          </div>
+            <span className="font-medium text-slate-700">Não</span>
+          </label>
         </div>
       </div>
 
       <button
         type="submit"
-        className="mx-auto h-12 w-full max-w-96 rounded-md bg-secondary p-2 font-bold text-white focus:outline-none focus:ring-2 focus:ring-black sm:mx-0"
+        className="mx-auto mt-4 h-14 w-full max-w-96 rounded-lg bg-secondary text-lg font-bold text-white transition-all hover:bg-primary hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-secondary/30 active:scale-[0.98] sm:mx-0"
       >
-        Calcular
+        Realizar Cálculo
       </button>
 
       {/* <AdsTerra300 /> */}

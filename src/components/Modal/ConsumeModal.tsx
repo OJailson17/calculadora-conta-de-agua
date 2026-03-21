@@ -71,8 +71,7 @@ export const ConsumeModal = () => {
         <Dialog.Overlay className="fixed inset-0 bg-black/50" />
 
         <Dialog.Content
-          // onOpenAutoFocus={e => e.preventDefault()}
-          className="fixed left-1/2 top-1/2 flex w-[90%] max-w-[450px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-5 overflow-y-auto rounded-md bg-white px-2 py-4 sm:px-6"
+          className="fixed left-1/2 top-1/2 flex w-[90%] max-w-[480px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-5 overflow-y-auto rounded-2xl bg-white p-6 sm:p-8 shadow-2xl"
         >
           <div className="relative w-full text-center">
             <Dialog.Title className="text-lg font-bold">
@@ -80,9 +79,8 @@ export const ConsumeModal = () => {
             </Dialog.Title>
             <Dialog.Close asChild>
               <IoClose
-                size={24}
-                fill="gray"
-                className="absolute right-2 top-1 cursor-pointer"
+                size={28}
+                className="absolute right-0 top-0 cursor-pointer text-slate-400 hover:text-slate-600 transition-colors"
               />
             </Dialog.Close>
           </div>
@@ -96,7 +94,7 @@ export const ConsumeModal = () => {
 
           <form
             onSubmit={handleSubmit(onCalculateConsume)}
-            className="flex flex-col items-center justify-center gap-8"
+            className="flex w-full flex-col items-start gap-6 mt-2"
           >
             <div>
               <p>
@@ -107,7 +105,7 @@ export const ConsumeModal = () => {
                 <input
                   type="number"
                   placeholder="Ex: 140 ou 0140"
-                  className="mt-1 h-12 w-full rounded-md border-2 border-black/70 px-2 py-3 focus:border-none focus:outline-none focus:ring-2 focus:ring-secondary"
+                  className="mt-2 h-14 w-full rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-lg transition-colors focus:border-secondary focus:bg-white focus:outline-none focus:ring-4 focus:ring-secondary/20"
                   {...register("hydrometerValue", {
                     valueAsNumber: true,
                   })}
@@ -135,7 +133,7 @@ export const ConsumeModal = () => {
                 <input
                   type="number"
                   placeholder="Ex: 135"
-                  className="mt-1 h-12 w-full rounded-md border-2 border-black/70 px-2 py-3 focus:border-none focus:outline-none focus:ring-2 focus:ring-secondary"
+                  className="mt-2 h-14 w-full rounded-lg border border-slate-300 bg-slate-50 px-4 py-3 text-lg transition-colors focus:border-secondary focus:bg-white focus:outline-none focus:ring-4 focus:ring-secondary/20"
                   {...register("lastMonthValue", {
                     valueAsNumber: true,
                   })}
@@ -151,7 +149,7 @@ export const ConsumeModal = () => {
             <button
               type="button"
               onClick={handleSubmit(onCalculateConsume)}
-              className="mx-auto h-12 w-full rounded-md bg-secondary p-2 font-bold text-white sm:mx-0"
+              className="mt-2 h-14 w-full rounded-lg bg-secondary text-lg font-bold text-white transition-transform hover:bg-primary active:scale-[0.98] sm:mx-0"
             >
               Salvar Consumo
             </button>
