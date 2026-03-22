@@ -33,23 +33,29 @@ export const CalculationResult = ({ totalPrice }: { totalPrice: number }) => {
 
       <div className="flex flex-col items-center gap-2">
         {isScreenReady ? (
-          <p className="text-5xl font-extrabold tracking-tight sm:text-6xl text-white drop-shadow-sm">
-            {new Intl.NumberFormat("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            }).format(totalPrice)}
+          <p className="break-all text-5xl font-extrabold tracking-tight text-white drop-shadow-sm sm:text-6xl">
+            {totalPrice >= 1000000000 ? (
+              <span className="break-words text-5xl">Valor muito alto</span>
+            ) : (
+              <>
+                {new Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(totalPrice)}
+              </>
+            )}
           </p>
         ) : (
-          <p className="text-5xl font-extrabold tracking-tight sm:text-6xl text-white/70 animate-pulse">
+          <p className="animate-pulse text-5xl font-extrabold tracking-tight text-white/70 sm:text-6xl">
             R$ ---
           </p>
         )}
       </div>
 
-      <div className="mt-4 rounded-xl bg-black/10 p-4 border border-white/10">
-        <p className="text-sm text-white/80 leading-relaxed">
-          Este valor é uma estimativa e não inclui taxas extras, multas, ou juros 
-          adicionais que possam ser cobrados na fatura oficial.
+      <div className="mt-4 rounded-xl border border-white/10 bg-black/10 p-4">
+        <p className="text-sm leading-relaxed text-white/80">
+          Este valor é uma estimativa e não inclui taxas extras, multas, ou
+          juros adicionais que possam ser cobrados na fatura oficial.
         </p>
       </div>
 

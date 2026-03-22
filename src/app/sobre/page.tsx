@@ -2,8 +2,21 @@ import { Footer } from "@/components/Footer";
 import { LINKS } from "@/utils/constants";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { FAIXA_1 } from "@/utils/taxes";
 
 export default function Sobre() {
+  const total =
+    FAIXA_1["FAIXA_1_1"]["ResidencialNormalVeraneio"].total +
+    4 * FAIXA_1["FAIXA_1_2"]["ResidencialNormalVeraneio"].aliquot +
+    2 * FAIXA_1["FAIXA_1_3"]["ResidencialNormalVeraneio"].aliquot;
+
+  const formatCalculations = (value: number) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value);
+  };
+
   return (
     <>
       <main className="mx-auto mb-24 mt-12 flex w-full max-w-[1200px] flex-col gap-10 px-4 sm:px-8">
@@ -57,19 +70,55 @@ export default function Sobre() {
                 consumiu <strong>12m³</strong> de água, o cálculo será:
                 <ul className="mt-3 flex flex-col gap-2 rounded-xl border border-slate-100 bg-slate-50 p-2 text-base">
                   <li className="flex items-center gap-2">
-                    <strong>1ª Faixa:</strong> 6m³ = R$ 43,23
+                    <strong>1ª Faixa:</strong> 6m³ ={" "}
+                    {formatCalculations(
+                      FAIXA_1["FAIXA_1_1"]["ResidencialNormalVeraneio"].total,
+                    )}
                   </li>
                   <li className="flex items-center gap-2">
-                    <strong>2ª Faixa:</strong> 4m³ x R$ 1,71 = R$ 6,84
+                    <strong>2ª Faixa:</strong> 4m³ x{" "}
+                    {formatCalculations(
+                      FAIXA_1["FAIXA_1_2"]["ResidencialNormalVeraneio"].aliquot,
+                    )}{" "}
+                    ={" "}
+                    {formatCalculations(
+                      4 *
+                        FAIXA_1["FAIXA_1_2"]["ResidencialNormalVeraneio"]
+                          .aliquot,
+                    )}
                   </li>
                   <li className="flex items-center gap-2">
-                    <strong>3ª Faixa:</strong> 2m³ x R$ 12,10 = R$ 24,20
+                    <strong>3ª Faixa:</strong> 2m³ x{" "}
+                    {formatCalculations(
+                      FAIXA_1["FAIXA_1_3"]["ResidencialNormalVeraneio"].aliquot,
+                    )}{" "}
+                    ={" "}
+                    {formatCalculations(
+                      2 *
+                        FAIXA_1["FAIXA_1_3"]["ResidencialNormalVeraneio"]
+                          .aliquot,
+                    )}
                   </li>
                   <li className="mt-2 flex items-center gap-2 border-t border-slate-200 pt-3">
                     <strong className="text-secondary">
                       Total (sem taxa de esgoto):
                     </strong>{" "}
-                    R$ 43,23 + R$ 6,84 + R$ 24,20 = R$ 74,27
+                    {formatCalculations(
+                      FAIXA_1["FAIXA_1_1"]["ResidencialNormalVeraneio"].total,
+                    )}{" "}
+                    +{" "}
+                    {formatCalculations(
+                      4 *
+                        FAIXA_1["FAIXA_1_2"]["ResidencialNormalVeraneio"]
+                          .aliquot,
+                    )}{" "}
+                    +{" "}
+                    {formatCalculations(
+                      2 *
+                        FAIXA_1["FAIXA_1_3"]["ResidencialNormalVeraneio"]
+                          .aliquot,
+                    )}{" "}
+                    = {formatCalculations(total)}
                   </li>
                 </ul>
               </li>
