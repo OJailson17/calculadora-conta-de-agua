@@ -10,15 +10,15 @@ import { LINKS } from "@/utils/constants";
 export default function Home() {
   return (
     <>
-      <main className="mx-auto mb-24 mt-12 flex w-full max-w-[1200px] flex-col gap-10 px-4 sm:px-8">
-        <section className="flex w-full flex-col gap-5 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-8">
-          <p className="text-lg text-slate-700">
+      <main className="flex flex-col gap-10 mx-auto mt-12 mb-24 px-4 sm:px-8 w-full max-w-[1200px]">
+        <section className="flex flex-col gap-5 bg-white shadow-sm p-4 sm:p-8 border border-slate-100 rounded-2xl w-full">
+          <p className="text-slate-700 text-lg">
             Calcule o valor atual da sua conta de água baseado no seu consumo
             até agora. Mas lembre-se que os valores podem sofrer alterações até
             a data da próxima leitura.
           </p>
 
-          <p className="rounded-lg border border-red-100 bg-red-50 p-4 text-slate-700">
+          <p className="bg-red-50 p-4 border border-red-100 rounded-lg text-slate-700">
             <span className="font-bold text-error">Atenção:</span> Os cálculos
             são baseados nas tarifas da conta de água da{" "}
             <Link
@@ -34,7 +34,7 @@ export default function Home() {
             imóvel.
           </p>
 
-          <p className="mt-2 text-lg font-medium text-slate-800">
+          <p className="mt-2 font-medium text-slate-800 text-lg">
             Para calcular corretamente o valor, preencha o formulário abaixo:
           </p>
         </section>
@@ -44,20 +44,20 @@ export default function Home() {
           </BillContextProvider>
         </ConsumeModalContextProvider>
 
-        <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm sm:p-8">
-          <p className="text-sm font-medium text-slate-500">
-            *Tarifas atualizadas em Mar/2026
+        <div className="flex flex-col gap-4 bg-white shadow-sm mt-4 p-4 sm:p-8 border border-slate-100 rounded-2xl">
+          <p className="font-medium text-slate-500 text-sm">
+            *Tarifas atualizadas em Jul/2026
           </p>
           <Link
             href={LINKS.taxes}
             target="_blank"
             aria-label="Consultar tabela de tarifas"
-            className="w-max text-sm font-semibold text-secondary transition-colors hover:text-primary hover:underline"
+            className="w-max font-semibold text-secondary hover:text-primary text-sm hover:underline transition-colors"
           >
             Consultar Tabela de Tarifas Oficial
           </Link>
 
-          <div className="my-2 h-px w-full bg-slate-100" />
+          <div className="bg-slate-100 my-2 w-full h-px" />
 
           <p className="w-full text-slate-600">
             Essa aplicação não possui nenhum vínculo com a Embasa. Apenas
@@ -71,7 +71,7 @@ export default function Home() {
               site da empresa
             </Link>{" "}
             para realizar os cálculos.
-            <span className="ml-2 inline-block">
+            <span className="inline-block ml-2">
               <Link
                 href={LINKS.about}
                 className="w-max font-medium text-secondary hover:underline"
